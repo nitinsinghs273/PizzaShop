@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import getAddress from "../../services/apiGeocoding";
+import { getAddress } from "../../services/apiGeocoding";
 
 function getPosition() {
   return new Promise(function (resolve, reject) {
@@ -47,7 +47,7 @@ const userSlice = createSlice({
       .addCase(
         //implementing Thunk middleware
         fetchAddress.pending,
-        (state, action) => {
+        (state) => {
           state.status = "loading";
         },
       )
