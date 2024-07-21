@@ -21,7 +21,6 @@ export async function getOrder(id) {
 
 export async function createOrder(newOrder) {
   try {
-    console.log(newOrder);
     const res = await fetch(`${API_URL}/order`, {
       method: "POST",
       body: JSON.stringify(newOrder),
@@ -34,7 +33,6 @@ export async function createOrder(newOrder) {
     const { data } = await res.json();
     return data;
   } catch (err) {
-    console.log(err.message);
     throw Error(`Failed creating your order: ${err}`);
   }
 }
